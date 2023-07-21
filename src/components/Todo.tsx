@@ -12,8 +12,12 @@ export const Todo: React.FC<Props> = ({id, title, done}) => {
                 onChange={()=>{}}
             />
             <label>
-                {title}
+                {id && title}
             </label>
+            <button 
+                className="destroy"
+                onClick={()=>{}}
+            />
         </div>
     )
 }
