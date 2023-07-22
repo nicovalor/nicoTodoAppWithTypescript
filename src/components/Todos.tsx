@@ -3,10 +3,11 @@ import { Todo } from "./Todo"
 
 interface Props {
     todos: ListOfTodos
-    onRemove: (id:string)=>void
+    onRemove: (id:string)=>void,
+    onCompleted: (id:string, done:boolean) => void
 }
 
-export const Todos: React.FC<Props> = ( { todos, onRemove } )=>{
+export const Todos: React.FC<Props> = ( { todos, onRemove, onCompleted } )=>{
     return (
         <>
             <ul className="todo-list">
@@ -19,7 +20,8 @@ export const Todos: React.FC<Props> = ( { todos, onRemove } )=>{
                                     id={task.id}
                                     title={task.title}
                                     done={task.done}
-                                    onRemove={onRemove} />
+                                    onRemove={onRemove}
+                                    onCompleted={onCompleted} />
                         </li>
                     )
                 })}

@@ -11,10 +11,25 @@ function App():JSX.Element {
     setTodos(newTodos)
   }
 
+  const handleDone = ( id:string, done:boolean ): void => {
+    const newTodos = todos.map( task => {
+      if(task.id === id){
+        return {
+          ...task,
+          done
+          }
+        }
+        return task
+    })
+    setTodos(newTodos)
+  }
+
+
   return (
     <div className='todoapp'>
       <Todos 
         onRemove={handleRemove}
+        onCompleted={handleDone}
         todos={todos} />
     </div>
   )
