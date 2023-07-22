@@ -14,12 +14,12 @@ export const Todos: React.FC<Props> = ( { todos, onRemove, onCompleted } )=>{
                 {todos.map(  task  => {
                     return (
                         <li key={task.id}
-                            className={`${task.done} ? "completed" : ""`}>    
+                            className={task.completed ? "completed" : ""}>    
                                 <Todo
                                     key={task.id}
                                     id={task.id}
                                     title={task.title}
-                                    done={task.done}
+                                    completed={task.completed}
                                     onRemove={onRemove}
                                     onCompleted={onCompleted} />
                         </li>

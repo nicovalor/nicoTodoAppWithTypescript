@@ -11,12 +11,12 @@ function App():JSX.Element {
     setTodos(newTodos)
   }
 
-  const handleDone = ( id:string, done:boolean ): void => {
+  const handleDone = ( id:string, completed:boolean ): void => {
     const newTodos = todos.map( task => {
       if(task.id === id){
         return {
           ...task,
-          done
+          completed
           }
         }
         return task

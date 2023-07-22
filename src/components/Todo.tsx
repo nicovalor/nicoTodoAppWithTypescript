@@ -5,17 +5,17 @@ interface Props extends TodoType {
     onCompleted: (id:string, done:boolean)=>void
 }
 
-export const Todo: React.FC<Props> = ({id, title, done, onRemove, onCompleted}) => {
+export const Todo: React.FC<Props> = ({id, title, completed, onRemove, onCompleted}) => {
 
     const handleChangleCheckbox = (event: React.ChangeEvent<HTMLInputElement>): void => {
-        onCompleted(id, done = event.target.checked)
+        onCompleted(id, completed = event.target.checked)
     }
     return (
         <div className="view">
             <input
                 type="checkbox"
                 className="toggle"
-                checked={done}
+                checked={completed}
                 onChange={handleChangleCheckbox}
             />
             <label>

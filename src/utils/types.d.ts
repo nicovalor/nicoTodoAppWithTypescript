@@ -1,7 +1,7 @@
 export interface Todo {
     id:string,
     title:string,
-    done:boolean
+    completed:boolean
 }
 
 export type ListOfTodos = Todo[]
