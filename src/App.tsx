@@ -2,8 +2,9 @@ import { useState } from 'react'
 import { mockTodos } from './utils/mocks'
 import { Todos } from './components/Todos'
 import { TODO_FILTERS } from './utils/consts'
-import { type FilterValue } from './utils/types'
+import { Todo, type FilterValue } from './utils/types'
 import { Footer } from './components/Footer'
+import { Header } from './components/Header'
 
 function App():JSX.Element {
 
@@ -47,9 +48,22 @@ function App():JSX.Element {
     setTodos(newTasks)
   }
 
+  const handleOnAddTodo = ({ title }: Pick<Todo,'title'>) => {
+    if(title.trim().length === 0) return;
+    const newTask = {
+      id: crypto.randomUUID(),
+      title,
+      completed: false
+    }
+    setTodos([...todos, newTask])
+  }
+
 
   return (
     <div className='todoapp'>
+
+      <Header onAddTodo={handleOnAddTodo} />
+
       <Todos 
         onRemove={handleRemove}
         onCompleted={handleDone}
