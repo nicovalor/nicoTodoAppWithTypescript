@@ -14,7 +14,6 @@ function App():JSX.Element {
   const completedCount = todos.length - activeCount;
   
   const filteredTasks = todos.filter( task => {
-    console.log(filterSelected)
     if(filterSelected === TODO_FILTERS.ACTIVE) return !task.completed;
     if(filterSelected === TODO_FILTERS.COMPLETED) return task.completed;
     return task

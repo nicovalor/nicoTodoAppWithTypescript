@@ -22,6 +22,7 @@ export const Filters: React.FC<Props> = ({ filterSelected , onFilterChange}) => 
                             onClick={(event)=>{
                                 event.preventDefault()
                                 onFilterChange(key as FilterValue)
+                                console.log(key)
                             }}
                         >{literal}</a>
                     </li>
