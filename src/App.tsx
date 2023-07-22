@@ -42,6 +42,11 @@ function App():JSX.Element {
     setFilterSelected(filter)
   }
 
+  const onClearComplete = (): void =>{
+    const newTasks = todos.filter( task => !task.completed)
+    setTodos(newTasks)
+  }
+
 
   return (
     <div className='todoapp'>
@@ -55,7 +60,7 @@ function App():JSX.Element {
         completedCount={completedCount}
         filterSelected={filterSelected}
         onFilterChange={handleFilterChange}
-        onClearComplete={()=>{}}
+        onClearComplete={onClearComplete}
       />
     </div>
   )

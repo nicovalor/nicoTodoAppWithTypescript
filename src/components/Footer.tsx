@@ -9,7 +9,7 @@ interface Props {
     onClearComplete: ()=>void
 }
 
-export const Footer: React.FC<Props> = ( {activeCount, completedCount, filterSelected, onFilterChange}) => {
+export const Footer: React.FC<Props> = ( {activeCount, completedCount, filterSelected, onFilterChange, onClearComplete}) => {
     return (
         <footer className="footer">
             <span className="todo-count">
@@ -20,6 +20,14 @@ export const Footer: React.FC<Props> = ( {activeCount, completedCount, filterSel
                 filterSelected={filterSelected}
                 onFilterChange={onFilterChange}
             />
+
+            {completedCount > 0 && (
+                <button
+                    className="clear-completed"
+                    onClick={onClearComplete}>
+                        Borrar completados
+                </button>)
+            }
             
         </footer>
     )
